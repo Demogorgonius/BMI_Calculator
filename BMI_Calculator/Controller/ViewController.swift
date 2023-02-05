@@ -9,12 +9,13 @@ import UIKit
 import SnapKit
 
 class ViewController: UIViewController {
-
+    
     //MARK: - Variables
     
     var buttons = ButtonsProperty()
     var labels = LabelProperty()
     var sliders = SliderProperty()
+    var calculatorController = CalculatorController()
     
     //MARK: - UILabels
     
@@ -44,7 +45,7 @@ class ViewController: UIViewController {
         label.font = labels.sliderTitleLabelFont
         label.numberOfLines = 1
         label.textAlignment = .right
-        label.text = "1,5"
+        label.text = "1,5m"
         return label
     }()
     
@@ -64,7 +65,7 @@ class ViewController: UIViewController {
         label.font = labels.sliderTitleLabelFont
         label.numberOfLines = 1
         label.textAlignment = .right
-        label.text = "20.0"
+        label.text = "20.0kg"
         return label
     }()
     
@@ -93,11 +94,11 @@ class ViewController: UIViewController {
         stack.alignment = .fill
         stack.contentMode = .scaleToFill
         [titleLabel,
-        heightHorizontalStackView,
-        heightSlider,
-        weightHorizontalStackView,
-        weightSlider,
-        calculateButton].forEach {
+         heightHorizontalStackView,
+         heightSlider,
+         weightHorizontalStackView,
+         weightSlider,
+         calculateButton].forEach {
             stack.addArrangedSubview($0)
         }
         
@@ -112,7 +113,7 @@ class ViewController: UIViewController {
         stack.contentMode = .scaleToFill
         stack.distribution = .fillProportionally
         [sliderHeightLabel,
-        sliderHeightIndicationTitle].forEach {
+         sliderHeightIndicationTitle].forEach {
             stack.addArrangedSubview($0)
         }
         return stack
@@ -126,7 +127,7 @@ class ViewController: UIViewController {
         stack.contentMode = .scaleToFill
         stack.distribution = .fillProportionally
         [sliderWeightLabel,
-        sliderWeightIndication].forEach {
+         sliderWeightIndication].forEach {
             stack.addArrangedSubview($0)
         }
         return stack
@@ -147,6 +148,7 @@ class ViewController: UIViewController {
         slider.isContinuous = true
         slider.minimumTrackTintColor = sliders.minTrackColor
         slider.thumbTintColor = sliders.thumbTintColor
+        slider.addTarget(self, action: #selector(heightSliderChange), for: .valueChanged)
         return slider
     }()
     
@@ -157,6 +159,7 @@ class ViewController: UIViewController {
         slider.isContinuous = true
         slider.minimumTrackTintColor = sliders.minTrackColor
         slider.thumbTintColor = sliders.thumbTintColor
+        slider.addTarget(self, action: #selector(weightSliderChange), for: .valueChanged)
         return slider
     }()
     
@@ -168,7 +171,7 @@ class ViewController: UIViewController {
         view.addSubview(verticalStackView)
         setupConstraints()
     }
-
+    
     //MARK: - Make constraints
     
     func setupConstraints() {
@@ -224,11 +227,30 @@ class ViewController: UIViewController {
     
     @objc func buttonTapped() {
         
+        let height = heightSlider.value
+        let weight = weightSlider.value
+        calculatorController.calculateBMI(height: height, weight: weight)
+        goToResultVC()
+    }
+    
+    @objc func heightSliderChange(_ sender: UISlider) {
+        let height = String(format: "%.2f", sender.value)
+        sliderHeightIndicationTitle.text = "\(height)m"
+    }
+    
+    @objc func weightSliderChange(_ sender: UISlider) {
+        let weight = String(format: "%.0f", sender.value)
+        sliderWeightIndication.text = "\(weight)kg"
+    }
+    
+    func goToResultVC() {
         let secondVC = ResultViewController()
         secondVC.modalPresentationStyle = .fullScreen
+        secondVC.advice = calculatorController.getAdvice()
+        secondVC.color = calculatorController.getColor()
+        secondVC.bmiValue = calculatorController.getBMIValue()
         self.present(secondVC, animated: true, completion: nil)
-        
     }
-
+    
 }
 

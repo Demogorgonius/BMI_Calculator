@@ -22,6 +22,8 @@
 		A511A0A6298C3BCB008B83CF /* LabelsProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = A511A0A5298C3BCB008B83CF /* LabelsProperty.swift */; };
 		A511A0A8298C3BD9008B83CF /* SliderProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = A511A0A7298C3BD9008B83CF /* SliderProperty.swift */; };
 		A511A0AA298EEBD4008B83CF /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A511A0A9298EEBD4008B83CF /* ResultViewController.swift */; };
+		A511A0AC298FBA65008B83CF /* BMI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A511A0AB298FBA65008B83CF /* BMI.swift */; };
+		A511A0AE298FBB22008B83CF /* CalculatorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A511A0AD298FBB22008B83CF /* CalculatorController.swift */; };
 		ED8EE2601B2C47D6534ABA24 /* Pods_BMI_Calculator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 568389F9B8764438D8E563FD /* Pods_BMI_Calculator.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +66,8 @@
 		A511A0A5298C3BCB008B83CF /* LabelsProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelsProperty.swift; sourceTree = "<group>"; };
 		A511A0A7298C3BD9008B83CF /* SliderProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderProperty.swift; sourceTree = "<group>"; };
 		A511A0A9298EEBD4008B83CF /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		A511A0AB298FBA65008B83CF /* BMI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMI.swift; sourceTree = "<group>"; };
+		A511A0AD298FBB22008B83CF /* CalculatorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorController.swift; sourceTree = "<group>"; };
 		AD89BFE5366200D23FD4D5FC /* Pods-BMI_Calculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BMI_Calculator.release.xcconfig"; path = "Target Support Files/Pods-BMI_Calculator/Pods-BMI_Calculator.release.xcconfig"; sourceTree = "<group>"; };
 		C1B266844A64ED6C83D0FF2F /* Pods_BMI_Calculator_BMI_CalculatorUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BMI_Calculator_BMI_CalculatorUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0754288DDBDC496A01F4188 /* Pods-BMI_Calculator-BMI_CalculatorUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BMI_Calculator-BMI_CalculatorUITests.release.xcconfig"; path = "Target Support Files/Pods-BMI_Calculator-BMI_CalculatorUITests/Pods-BMI_Calculator-BMI_CalculatorUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -178,6 +182,8 @@
 		A511A0A0298BDA3E008B83CF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A511A0AB298FBA65008B83CF /* BMI.swift */,
+				A511A0AD298FBB22008B83CF /* CalculatorController.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -472,6 +478,8 @@
 				A511A074298BD9AC008B83CF /* ViewController.swift in Sources */,
 				A511A0AA298EEBD4008B83CF /* ResultViewController.swift in Sources */,
 				A511A0A6298C3BCB008B83CF /* LabelsProperty.swift in Sources */,
+				A511A0AE298FBB22008B83CF /* CalculatorController.swift in Sources */,
+				A511A0AC298FBA65008B83CF /* BMI.swift in Sources */,
 				A511A070298BD9AC008B83CF /* AppDelegate.swift in Sources */,
 				A511A072298BD9AC008B83CF /* SceneDelegate.swift in Sources */,
 				A511A0A8298C3BD9008B83CF /* SliderProperty.swift in Sources */,

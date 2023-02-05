@@ -14,6 +14,9 @@ class ResultViewController: UIViewController {
     
     var buttons = ButtonsProperty()
     var labels = LabelProperty()
+    var bmiValue: String?
+    var advice: String?
+    var color: UIColor?
     
     //MARK: - Views and StackView
     
@@ -84,10 +87,12 @@ class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = #colorLiteral(red: 0.0357278958, green: 0.518226862, blue: 1, alpha: 1)
+        view.backgroundColor = color
         view.addSubview(backgroundImageView)
         view.addSubview(verticalStackView)
         view.addSubview(recalculateButton)
+        resultTitleLabel.text = bmiValue
+        titleSecondLabel.text = advice
         setupConstraints()
         
     }
