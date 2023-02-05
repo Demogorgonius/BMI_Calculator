@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     
     var buttons = ButtonsProperty()
     var labels = LabelProperty()
+    var sliders = SliderProperty()
     
     //MARK: - UILabels
     
@@ -71,10 +72,9 @@ class ViewController: UIViewController {
     
     lazy var calculateButton: UIButton = {
         let button = UIButton(frame: buttons.buttonFrame)
-        button.setTitle("Calculate", for: .normal)
+        button.setTitle("CALCULATE", for: .normal)
         button.backgroundColor = buttons.calcButtonColor
-        button.tintColor = buttons.calcButtonColor
-        button.titleLabel?.textColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
+        button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.font = buttons.buttonFont
         button.titleLabel?.numberOfLines = 0
         button.titleLabel?.adjustsFontSizeToFitWidth = true
@@ -145,7 +145,8 @@ class ViewController: UIViewController {
         slider.minimumValue = 1.0
         slider.maximumValue = 2.5
         slider.isContinuous = true
-        slider.tintColor = #colorLiteral(red: 0.3843137255, green: 0.3764705882, blue: 0.6156862745, alpha: 1)
+        slider.minimumTrackTintColor = sliders.minTrackColor
+        slider.thumbTintColor = sliders.thumbTintColor
         return slider
     }()
     
@@ -154,7 +155,8 @@ class ViewController: UIViewController {
         slider.minimumValue = 20.0
         slider.maximumValue = 200.0
         slider.isContinuous = true
-        slider.tintColor = #colorLiteral(red: 0.3843137255, green: 0.3764705882, blue: 0.6156862745, alpha: 1)
+        slider.minimumTrackTintColor = sliders.minTrackColor
+        slider.thumbTintColor = sliders.thumbTintColor
         return slider
     }()
     
@@ -221,6 +223,10 @@ class ViewController: UIViewController {
     //MARK: - Methods
     
     @objc func buttonTapped() {
+        
+        let secondVC = ResultViewController()
+        secondVC.modalPresentationStyle = .fullScreen
+        self.present(secondVC, animated: true, completion: nil)
         
     }
 
